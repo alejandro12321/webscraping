@@ -66,7 +66,7 @@ equipos = []
 count = 0       # Llevemos un contador para mostrar un número especifico de equipos
 
 for i in teams_data:
-    if count < 5:       # Cuantos equipos quiero mostrar
+    if count < 4:       # Cuantos equipos quiero mostrar
         equipos.append(i.text.strip())  # Quitamos posibles espacios en blanco que hagan ruido innecesario
     else:
         break
@@ -78,13 +78,13 @@ puntos = []
 count = 0
 
 for i in score_data:
-    if count < 5:
+    if count < 4:
         puntos.append(int(i.text.strip()))  # Contemplar el cambio de tipo porque los puntos son datos numéricos. Int es el tipo de dato numérico en Python
     else:
         break
     count += 1
 
-df = pd.DataFrame({"Equipo": equipos, "Puntos": puntos}, index=list(range(1, 6)))
+df = pd.DataFrame({"Equipo": equipos, "Puntos": puntos}, index=list(range(1, 5)))
 
 plt.figure(figsize=(10, 6))
 plt.bar(df['Equipo'], df['Puntos'])     # Se indican los datos para los ejes (x,y)
